@@ -1,14 +1,15 @@
 package initialTest;
 
-import org.junit.After;
-import org.junit.Before;
-import org.junit.Test;
+//import org.junit.After;
+//import org.junit.Before;
+//import org.junit.Test;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.annotations.*;
 
 import static org.junit.Assert.assertEquals;
 
@@ -16,8 +17,8 @@ public class GoogleSearchTest {
 	
 	private WebDriver driver;
 	
-	@Before
-	public void setUp() {
+	@BeforeClass
+	public void beforeClass() {
 		
 		System.setProperty("webdriver.chrome.driver", "./src/test/java/driver/chromedriver");
 		driver = new ChromeDriver();
@@ -50,10 +51,10 @@ public class GoogleSearchTest {
 		assertEquals("Introduccion a automation - Buscar con Google", driver.getTitle());
 	}
 	
-	@After
-	public void tearDown() {
+	@AfterClass
+	public void afterClass() {
 
-		//driver.quit();
+		driver.close();
 	}
 
 }
